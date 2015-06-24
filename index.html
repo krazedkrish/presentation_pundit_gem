@@ -304,51 +304,46 @@ color: #333;
           </section>
           <section>
             <p>Supposing that you have an instance of class Post, Pundit now lets you do this in your controller:</p>
-              <pre class="line-pre">
-                <div class="line"><span class="pl-k">  def</span> <span class="pl-en">update</span>
-                </div><div class="line"><span class="pl-smi">    @post</span> <span class="pl-k">=</span> <span class="pl-c1">Post</span>.find(params[<span class="pl-c1">:id</span>])
-                </div><div class="line">    authorize <span class="pl-smi">@post</span>
-                </div><div class="line"><span class="pl-k">    if</span> <span class="pl-smi">@post</span>.update(post_params)
-                </div><div class="line">      redirect_to <span class="pl-smi">@post</span>
-                </div><div class="line"><span class="pl-k">    else</span>
-                </div><div class="line">      render <span class="pl-c1">:edit</span>
-                </div><div class="line"><span class="pl-k">    end</span>
-                </div><div class="line"><span class="pl-k">  end</span></div>
-              </pre>
+            <pre class="line-pre">
+              <div class="line"><span class="pl-k">  def</span> <span class="pl-en">update</span>
+              </div><div class="line"><span class="pl-smi">    @post</span> <span class="pl-k">=</span> <span class="pl-c1">Post</span>.find(params[<span class="pl-c1">:id</span>])
+              </div><div class="line">    authorize <span class="pl-smi">@post</span>
+              </div><div class="line"><span class="pl-k">    if</span> <span class="pl-smi">@post</span>.update(post_params)
+              </div><div class="line">      redirect_to <span class="pl-smi">@post</span>
+              </div><div class="line"><span class="pl-k">    else</span>
+              </div><div class="line">      render <span class="pl-c1">:edit</span>
+              </div><div class="line"><span class="pl-k">    end</span>
+              </div><div class="line"><span class="pl-k">  end</span></div>
+            </pre>
           </section>
           <section>
             <h3>Scopes</h3>
-              <pre>
-                <div class="line"><span class="pl-k">class</span> <span class="pl-en">PostPolicy<span class="pl-e"> &lt; ApplicationPolicy</span></span>
-                </div><div class="line"><span class="pl-k">  class</span> <span class="pl-en">Scope</span>
-                </div><div class="line"><span class="pl-k">    attr_reader</span> <span class="pl-c1">:user</span>, <span class="pl-c1">:scope</span>
+            <pre class="line-pre">
+              <div class="line"><span class="pl-k">class</span> <span class="pl-en">PostPolicy<span class="pl-e"> &lt; ApplicationPolicy</span></span>
+              </div><div class="line"><span class="pl-k">  class</span> <span class="pl-en">Scope</span>
+              </div><div class="line"><span class="pl-k">    attr_reader</span> <span class="pl-c1">:user</span>, <span class="pl-c1">:scope</span>
 
-                </div><div class="line"><span class="pl-k">    def</span> <span class="pl-en">initialize</span>(<span class="pl-smi">user</span>, <span class="pl-smi">scope</span>)
-                </div><div class="line"><span class="pl-smi">      @user</span> <span class="pl-k">=</span> user
-                </div><div class="line"><span class="pl-smi">      @scope</span> <span class="pl-k">=</span> scope
-                </div><div class="line"><span class="pl-k">    end</span>
-                </div>
-              </pre>
+              </div><div class="line"><span class="pl-k">    def</span> <span class="pl-en">initialize</span>(<span class="pl-smi">user</span>, <span class="pl-smi">scope</span>)
+              </div><div class="line"><span class="pl-smi">      @user</span> <span class="pl-k">=</span> user
+              </div><div class="line"><span class="pl-smi">      @scope</span> <span class="pl-k">=</span> scope
+              </div><div class="line"><span class="pl-k">    end</span></div>
+            </pre>
           </section>
           <section>
-            <div class="highlight highlight-ruby">
-              <pre>
-                <div class="line"><span class="pl-k">  def</span> <span class="pl-en">resolve</span>
-                </div><div class="line"><span class="pl-k">      if</span> user.admin?
-                </div><div class="line">        scope.all
-                </div><div class="line"><span class="pl-k">      else</span>
-                </div><div class="line">        scope.where(<span class="pl-c1">:published</span> =&gt; <span class="pl-c1">true</span>)
-                </div><div class="line"><span class="pl-k">      end</span>
-                </div><div class="line"><span class="pl-k">    end</span>
-                </div><div class="line"><span class="pl-k">  end</span>
+            <pre class="line-pre">
+              <div class="line"><span class="pl-k">  def</span> <span class="pl-en">resolve</span>
+              </div><div class="line"><span class="pl-k">      if</span> user.admin?
+              </div><div class="line">        scope.all
+              </div><div class="line"><span class="pl-k">      else</span>
+              </div><div class="line">        scope.where(<span class="pl-c1">:published</span> =&gt; <span class="pl-c1">true</span>)
+              </div><div class="line"><span class="pl-k">      end</span>
+              </div><div class="line"><span class="pl-k">    end</span>
+              </div><div class="line"><span class="pl-k">  end</span>
 
-                </div><div class="line"><span class="pl-k">  def</span> <span class="pl-en">update?</span>
-                </div><div class="line">    user.admin? <span class="pl-k">or</span> <span class="pl-k">not</span> post.published?
-                </div><div class="line"><span class="pl-k">  end</span>
-                </div><div class="line"><span class="pl-k">end</span>
-                </div>
-              </pre>
-            </div>
+              </div><div class="line"><span class="pl-k">  def</span> <span class="pl-en">update?</span>
+              </div><div class="line">    user.admin? <span class="pl-k">or</span> <span class="pl-k">not</span> post.published?
+              </div><div class="line"><span class="pl-k">  end</span>
+              </div><div class="line"><span class="pl-k">end</span></div></pre>
           </section>
           <section>
             <p>You can now use this class from your controller via the policy_scope method:</p>
@@ -368,6 +363,7 @@ color: #333;
           <br />
           <br />
           <p>There is a lot more out there</p>
+          <p>Make sure you check</p>
           <a href="https://github.com/elabs/pundit" class="orange">[ https://github.com/elabs/pundit ]</a>
         </section>
       </div>
