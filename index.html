@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Presentation on Pundit Gem</title>
+    <meta name="author" content="Shalil Awaley">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- these are my custom styles. remember that slide sizes scale, so try to use percentages. -->
+    <style>
+     p.alignLeft {
+       text-align: left;
+     }
+     span.orange, a.orange {
+       color: orange;
+       outline-color: gray;
+     }
+     div.innovation ul li {
+       margin-bottom:12px;
+     }
+     figcaption {
+       font-size:.8em;
+     }
+     p.miscItems {
+       font-size:1.2em;
+     }
+     .slides section h3 {
+       color: orange !important; outline: gray;
+     }
+     .slides img.shortened {
+       max-width: 80%;
+       max-height: 80%;
+     }
+     #upcoming-slide .label {
+       color: #444 !important
+     }
+     ul.credits li {
+       font-size: .6em;
+     }
+     .highlight {
+       margin-bottom: 16px;
+       box-sizing: border-box;
+       word-wrap: break-word;
+       font-family: "Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;
+       font-size: 16px;
+       line-height: 1.6;
+       font: 13px/1.4 Helvetica,arial,nimbussansl,liberationsans,freesans,clean,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
+color: #333;
+     }
+     pre.line-pre {
+      padding: 15px;
+     }
+    </style>
+    <!-- Note: Make artboard sizes about 775px wide X 445px tall. If the image appears as a vertical navigation, add a class of "shortened" to the image element to reduce its size to 80% -->
+  </head>
+  <body>
+    <div class="reveal innovation">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <p>
+            <h3>Lunch and Learn</h3>
+            <h1>
+              <a href="https://github.com/elabs/pundit">Pundit Gem</a>
+            </h1>
+          </p>
+          <br />
+          <p>
+            <small>Submitted by</small>
+            <h4> <span class="orange">shalil awaley</span></h4>
+          </p>
+        </section>
+
+        <section>
+          <h2>Authorization</h2>
+          <section>
+            <p>
+              <strong>
+                <a class="orange" href="https://github.com/elabs/pundit">
+                  Pundit
+                </a>
+                Gem
+              </strong> - Minimal authorization through OO design and pure Ruby classes.
+            </p>It is a really simple Ruby Gem, that does nothing more that you could have done yourself. Here is the power! </p>
+            <aside class="notes">
+              <p>- very popular</p>
+              <p>- easy to migrate from cancal</p>
+              <p>- suppots devise </p>
+            </aside>
+          </section>
+          <section>
+            <h3>Alternatives</h3>
+            <ul>
+              <li>
+                <a class="orange" href="https://github.com/be9/acl9">acl9</a> - Acl9 is a role-based authorization system that provides a concise DSL for securing your Rails application.
+              </li>
+              <li>
+                <a class="orange" href="https://github.com/nathanl/authority">Authority</a> - ORM-neutral way to authorize actions in your Rails app.
+              </li>
+              <li>
+                <a class="orange" href="https://github.com/CanCanCommunity/cancancan">CanCanCan</a> - Continuation of CanCan, an authorization Gem for Ruby on Rails.
+              </li>
+              <li>
+                <a class="orange" href="https://github.com/stffn/declarative_authorization">Declarative Authorization</a> - An authorization Rails plugin using a declarative DSL for specifying authorization rules in one place.
+              </li>
+            </ul>
+            <aside class="notes">
+              <p>- acl9 very much configurable, can develop a secured site</p>
+              <p>- cancan is very simple to user</p>
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>
+              Pundit Gem
+            </h3>
+            <ul>
+              <li>Open source</li>
+              <li>hosted in github</li>
+              <li>Watches: <span class="orange" id="github-watchers"></span></li>
+              <li>Star: <span class="orange" id="github-stars"></span></li>
+              <li>Forks: <span class="orange" id="github-forks"></span></li>
+            </ul>
+            <aside class="notes">
+              <p>- very popular</p>
+              <p>- active communty</p>
+            </aside>
+          </section>
+          <section>
+            <h3>
+              About <span class="orange">Pundit</span>
+            </h3>
+            <p align="left">
+              Pundit set some helpers to :
+              <ul>
+                <li>
+                  Check Policy for a given user on a given object( it is not restricted to ActiveRecord::Base instances ).
+                </li>
+                <li>
+                  Describe Policy in Ruby Class
+                </li>
+                <li>
+                  Enforce use of Policy in your controllers
+                </li>
+                <li>
+                  Bring syntactic sugar in you Rspec tests
+                </li>
+              </ul>
+            </p>
+            <aside class="notes">
+              <p>- Project lead leads project</p>
+              <p>- Adds Tasks </p>
+              <p>- Adds Staff to Project </p>
+            </aside>
+          </section>
+          <section>
+            <h3>Installation</h3>
+            <div class="highlight">
+            <pre class="line-pre"><span class="pl-k">gem</span> <span class="pl-s"><span class="pl-pds">"</span>pundit<span class="pl-pds">"</span></span></pre>
+            </div>
+            <p>&nbsp;</p>
+            <p>Include Pundit in your application controller:</p>
+            <pre class="line-pre"><span class="pl-k">class</span> <span class="pl-en">ApplicationController<span class="pl-e"> &lt; ActionController::Base</span></span>
+  <span class="pl-k">include</span> <span class="pl-c1">Pundit</span>
+  protect_from_forgery
+<span class="pl-k">end</span></pre>
+            <aside class="notes">
+              <p>- Track's time of accessed projects </p>
+            </aside>
+          </section>
+          <section>
+            <pre class="line-pre">
+              <div class="line" id="file-application_controller-rb-LC1"><span class="pl-k">class</span> <span class="pl-en">ApplicationController<span class="pl-e"> &lt; ActionController::Base</span></span>
+              </div><div class="line" id="file-application_controller-rb-LC2">&nbsp;
+              </div><div class="line" id="file-application_controller-rb-LC3">  <span class="pl-c"># Includes Authorization mechanism</span>
+              </div><div class="line" id="file-application_controller-rb-LC4">  <span class="pl-k">include</span> <span class="pl-vo">Pundit</span>
+              </div><div class="line" id="file-application_controller-rb-LC5">&nbsp;
+              </div><div class="line" id="file-application_controller-rb-LC6">  <span class="pl-c"># Prevent CSRF attacks by raising an exception.</span>
+              </div><div class="line" id="file-application_controller-rb-LC7">  <span class="pl-c"># For APIs, you may want to use :null_session instead.</span>
+              </div>
+            </pre>
+          </section>
+          <section>
+            <pre class="line-pre">
+              <div class="line" id="file-application_controller-rb-LC8">  protect_from_forgery <span class="pl-c1">with:</span> <span class="pl-c1">:exception</span>
+              </div><div class="line" id="file-application_controller-rb-LC9">&nbsp;
+              </div><div class="line" id="file-application_controller-rb-LC10">  <span class="pl-c"># Globally rescue Authorization Errors in controller.</span>
+              </div><div class="line" id="file-application_controller-rb-LC11">  <span class="pl-c"># Returning 403 Forbidden if permission is denied</span>
+              </div><div class="line" id="file-application_controller-rb-LC12">  rescue_from <span class="pl-s3">Pundit</span>::<span class="pl-vo">NotAuthorizedError</span>, <span class="pl-c1">with:</span> <span class="pl-c1">:permission_denied</span>
+              </div><div class="line" id="file-application_controller-rb-LC13">&nbsp;
+              </div>
+            </pre>
+          </section>
+          <section>
+            <pre class="line-pre">
+              <div class="line" id="file-application_controller-rb-LC20">&nbsp;
+              </div><div class="line" id="file-application_controller-rb-LC21">  <span class="pl-k">private</span>
+              </div><div class="line" id="file-application_controller-rb-LC22">&nbsp;
+              </div><div class="line" id="file-application_controller-rb-LC23">  <span class="pl-k">def</span> <span class="pl-en">permission_denied</span>
+              </div><div class="line" id="file-application_controller-rb-LC24">    head <span class="pl-c1">403</span>
+              </div><div class="line" id="file-application_controller-rb-LC25">  <span class="pl-k">end</span>
+              </div><div class="line" id="file-application_controller-rb-LC26">&nbsp;
+              </div><div class="line" id="file-application_controller-rb-LC27"><span class="pl-k">end</span>
+              </div>
+            </pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2> Policy </h2>
+            <ul>
+              <li>
+                <p>Optionally, you can run the generator, which will set up an application policy
+                  with some useful defaults for you:</p>
+                <p>
+                  <div class="highlight highlight-sh"><pre>rails g pundit:install</pre></div>
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  Policy are placed in
+                  <pre>app/policies/</pre>
+                </p>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <div>
+              <h3>app/policies/application_policy.rb</h3>
+              <pre class="line-pre">
+                <div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC1"><span class="pl-k">class</span> <span class="pl-en">ApplicationPolicy</span>
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC2">  <span class="pl-k">attr_reader</span> <span class="pl-c1">:user</span>, <span class="pl-c1">:record</span>
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC3">&nbsp;
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC4">  <span class="pl-k">def</span> <span class="pl-en">initialize</span>(<span class="pl-vpf">user</span>, <span class="pl-vpf">record</span>)
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC5">    <span class="pl-vo">@user</span> <span class="pl-k">=</span> user
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC6">    <span class="pl-vo">@record</span> <span class="pl-k">=</span> record
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC7">  <span class="pl-k">end</span>
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC8">&nbsp;
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC9">  <span class="pl-k">def</span> <span class="pl-en">user_activities</span>
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC10">    <span class="pl-vo">@user</span>.roles.select(<span class="pl-c1">:activities</span>).distinct.map(<span class="pl-k">&amp;</span><span class="pl-c1">:activities</span>).flatten
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC11">  <span class="pl-k">end</span>
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC25">&nbsp;
+                </div>
+              </pre>
+            </div>
+          </section>
+          <section>
+            <h3>Scopes</h3>
+            <div>
+              <pre class="line-pre">
+                <div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC25">&nbsp;
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC26">  <span class="pl-k">def</span> <span class="pl-en">scope</span>
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC27">    <span class="pl-s3">Pundit</span>.policy_scope!(user, record.class)
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC28">  <span class="pl-k">end</span>
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC29"><span class="pl-k">end</span>
+                </div>
+              </pre>
+            </div>
+          </section>
+          <section>
+            <h3>app/policies/post_policy.rb</h3>
+            <div class="highlight highlight-ruby">
+              <pre class="line-pre">
+                <div class="line"><span class="pl-k">class</span> <span class="pl-en">PostPolicy<span class="pl-e"> &lt; ApplicationPolicy</span></span>
+                </div><div class="line"><span class="pl-k">  attr_reader</span> <span class="pl-c1">:user</span>, <span class="pl-c1">:post</span>
+
+                </div><div class="line"><span class="pl-k">  def</span> <span class="pl-en">initialize</span>(<span class="pl-smi">user</span>, <span class="pl-smi">post</span>)
+                </div><div class="line"><span class="pl-smi">    @user</span> <span class="pl-k">=</span> user
+                </div><div class="line"><span class="pl-smi">    @post</span> <span class="pl-k">=</span> post
+                </div><div class="line"><span class="pl-k">  end</span>
+
+                </div><div class="line"><span class="pl-k">  def</span> <span class="pl-en">update?</span>
+    user.admin? <span class="pl-k">or</span> <span class="pl-k">not</span> post.published?
+                </div><div class="line"><span class="pl-k">  end</span>
+                </div><div class="line"><span class="pl-k">end</span>
+                </div>
+              </pre>
+            </div>
+          </section>
+          <section>
+            <p>Supposing that you have an instance of class Post, Pundit now lets you do this in your controller:</p>
+            <div class="highlight highlight-ruby">
+              <pre class="line-pre">
+                <div class="line"><span class="pl-k">  def</span> <span class="pl-en">update</span>
+                </div><div class="line"><span class="pl-smi">    @post</span> <span class="pl-k">=</span> <span class="pl-c1">Post</span>.find(params[<span class="pl-c1">:id</span>])
+                  </div><div class="line">    authorize <span class="pl-smi">@post</span>
+                </div><div class="line"><span class="pl-k">    if</span> <span class="pl-smi">@post</span>.update(post_params)
+                </div><div class="line">      redirect_to <span class="pl-smi">@post</span>
+                </div><div class="line"><span class="pl-k">    else</span>
+                </div><div class="line">      render <span class="pl-c1">:edit</span>
+                </div><div class="line"><span class="pl-k">    end</span>
+                </div><div class="line"><span class="pl-k">  end</span>
+                </div>
+              </pre>
+            </div>
+          </section>
+          <section>
+            <h3>Scopes</h3>
+            <div class="highlight highlight-ruby">
+              <pre>
+                <div class="line"><span class="pl-k">class</span> <span class="pl-en">PostPolicy<span class="pl-e"> &lt; ApplicationPolicy</span></span>
+                </div><div class="line"><span class="pl-k">  class</span> <span class="pl-en">Scope</span>
+                </div><div class="line"><span class="pl-k">    attr_reader</span> <span class="pl-c1">:user</span>, <span class="pl-c1">:scope</span>
+
+                </div><div class="line"><span class="pl-k">    def</span> <span class="pl-en">initialize</span>(<span class="pl-smi">user</span>, <span class="pl-smi">scope</span>)
+                </div><div class="line"><span class="pl-smi">      @user</span> <span class="pl-k">=</span> user
+                </div><div class="line"><span class="pl-smi">      @scope</span> <span class="pl-k">=</span> scope
+                </div><div class="line"><span class="pl-k">    end</span>
+                </div>
+              </pre>
+            </div>
+          </section>
+          <section>
+            <div class="highlight highlight-ruby">
+              <pre>
+                <div class="line"><span class="pl-k">  def</span> <span class="pl-en">resolve</span>
+                </div><div class="line"><span class="pl-k">      if</span> user.admin?
+                </div><div class="line">        scope.all
+                </div><div class="line"><span class="pl-k">      else</span>
+                </div><div class="line">        scope.where(<span class="pl-c1">:published</span> =&gt; <span class="pl-c1">true</span>)
+                </div><div class="line"><span class="pl-k">      end</span>
+                </div><div class="line"><span class="pl-k">    end</span>
+                </div><div class="line"><span class="pl-k">  end</span>
+
+                </div><div class="line"><span class="pl-k">  def</span> <span class="pl-en">update?</span>
+                </div><div class="line">    user.admin? <span class="pl-k">or</span> <span class="pl-k">not</span> post.published?
+                </div><div class="line"><span class="pl-k">  end</span>
+                </div><div class="line"><span class="pl-k">end</span>
+                </div>
+              </pre>
+            </div>
+          </section>
+          <section>
+            <p>You can now use this class from your controller via the policy_scope method:</p>
+            <div class="highlight highlight-ruby">
+              <pre>
+                <div class="line"><span class="pl-k">  def</span> <span class="pl-en">index</span>
+                </div><div class="line"><span class="pl-smi">    @posts</span> <span class="pl-k">=</span> policy_scope(<span class="pl-c1">Post</span>)
+                </div><div class="line"><span class="pl-k">  end</span>
+                </div>
+              </pre>
+            </div>
+          </section>
+        </section>
+        <section>
+          <br />
+          <h2>THE END</h2>
+          <br />
+          <br />
+          <p>There is a lot more out there</p>
+          <a href="https://github.com/elabs/pundit" class="orange">[ https://github.com/elabs/pundit ]</a>
+        </section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: false,
+       slideNumber: true,
+
+
+       transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+    </script>
+  </body>
+</html>
