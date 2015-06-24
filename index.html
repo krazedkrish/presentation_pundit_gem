@@ -133,12 +133,18 @@ color: #333;
               Pundit Gem
             </h3>
             <ul>
-              <li>Open source</li>
-              <li>hosted in github</li>
+              <li>Open source hosted in github<p>[ <a class="orange" href="https://github.com/elabs/pundit"> https://github.com/elabs/pundit </a>]</p></li>
               <li>Watches: <span class="orange" id="github-watchers"></span></li>
               <li>Star: <span class="orange" id="github-stars"></span></li>
               <li>Forks: <span class="orange" id="github-forks"></span></li>
+              <li>Good documentation
+                <p>
+                  [ <a class="orange" href="http://www.rubydoc.info/gems/pundit">http://www.rubydoc.info/gems/pundit</a>]
+                </p>
+              </li>
             </ul>
+            <p>&nbsp;</p>
+            <p><h4>☆ Make sure you star it</h4></p>
             <aside class="notes">
               <p>- very popular</p>
               <p>- active communty</p>
@@ -171,8 +177,10 @@ color: #333;
               <p>- Adds Staff to Project </p>
             </aside>
           </section>
+        </section>
+        <section>
           <section>
-            <h3>Installation</h3>
+            <h2>Installation</h2>
             <div class="highlight">
             <pre class="line-pre"><span class="pl-k">gem</span> <span class="pl-s"><span class="pl-pds">"</span>pundit<span class="pl-pds">"</span></span></pre>
             </div>
@@ -187,6 +195,8 @@ color: #333;
             </aside>
           </section>
           <section>
+            <h3>Code Example</h3>
+            <p class="alignLeft">Application Controller</p>
             <pre class="line-pre">
               <div class="line" id="file-application_controller-rb-LC1"><span class="pl-k">class</span> <span class="pl-en">ApplicationController<span class="pl-e"> &lt; ActionController::Base</span></span>
               </div><div class="line" id="file-application_controller-rb-LC2">&nbsp;
@@ -231,14 +241,14 @@ color: #333;
                 <p>Optionally, you can run the generator, which will set up an application policy
                   with some useful defaults for you:</p>
                 <p>
-                  <div class="highlight highlight-sh"><pre>rails g pundit:install</pre></div>
+                  <pre class="line-pre">rails g pundit:install</pre>
                 </p>
               </li>
 
               <li>
                 <p>
                   Policy are placed in
-                  <pre>app/policies/</pre>
+                  <pre class="line-pre">app/policies/</pre>
                 </p>
               </li>
             </ul>
@@ -246,8 +256,7 @@ color: #333;
           <section>
             <div>
               <h3>app/policies/application_policy.rb</h3>
-              <pre class="line-pre">
-                <div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC1"><span class="pl-k">class</span> <span class="pl-en">ApplicationPolicy</span>
+              <pre class="line-pre"><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC1"><span class="pl-k">class</span> <span class="pl-en">ApplicationPolicy</span>
                 </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC2">  <span class="pl-k">attr_reader</span> <span class="pl-c1">:user</span>, <span class="pl-c1">:record</span>
                 </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC3">&nbsp;
                 </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC4">  <span class="pl-k">def</span> <span class="pl-en">initialize</span>(<span class="pl-vpf">user</span>, <span class="pl-vpf">record</span>)
@@ -257,10 +266,7 @@ color: #333;
                 </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC8">&nbsp;
                 </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC9">  <span class="pl-k">def</span> <span class="pl-en">user_activities</span>
                 </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC10">    <span class="pl-vo">@user</span>.roles.select(<span class="pl-c1">:activities</span>).distinct.map(<span class="pl-k">&amp;</span><span class="pl-c1">:activities</span>).flatten
-                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC11">  <span class="pl-k">end</span>
-                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC25">&nbsp;
-                </div>
-              </pre>
+                </div><div class="line" id="file-pundit_metaprograming_acces_rights-rb-LC11">  <span class="pl-k">end</span></div></pre>
             </div>
           </section>
           <section>
@@ -298,24 +304,20 @@ color: #333;
           </section>
           <section>
             <p>Supposing that you have an instance of class Post, Pundit now lets you do this in your controller:</p>
-            <div class="highlight highlight-ruby">
               <pre class="line-pre">
                 <div class="line"><span class="pl-k">  def</span> <span class="pl-en">update</span>
                 </div><div class="line"><span class="pl-smi">    @post</span> <span class="pl-k">=</span> <span class="pl-c1">Post</span>.find(params[<span class="pl-c1">:id</span>])
-                  </div><div class="line">    authorize <span class="pl-smi">@post</span>
+                </div><div class="line">    authorize <span class="pl-smi">@post</span>
                 </div><div class="line"><span class="pl-k">    if</span> <span class="pl-smi">@post</span>.update(post_params)
                 </div><div class="line">      redirect_to <span class="pl-smi">@post</span>
                 </div><div class="line"><span class="pl-k">    else</span>
                 </div><div class="line">      render <span class="pl-c1">:edit</span>
                 </div><div class="line"><span class="pl-k">    end</span>
-                </div><div class="line"><span class="pl-k">  end</span>
-                </div>
+                </div><div class="line"><span class="pl-k">  end</span></div>
               </pre>
-            </div>
           </section>
           <section>
             <h3>Scopes</h3>
-            <div class="highlight highlight-ruby">
               <pre>
                 <div class="line"><span class="pl-k">class</span> <span class="pl-en">PostPolicy<span class="pl-e"> &lt; ApplicationPolicy</span></span>
                 </div><div class="line"><span class="pl-k">  class</span> <span class="pl-en">Scope</span>
@@ -327,7 +329,6 @@ color: #333;
                 </div><div class="line"><span class="pl-k">    end</span>
                 </div>
               </pre>
-            </div>
           </section>
           <section>
             <div class="highlight highlight-ruby">
