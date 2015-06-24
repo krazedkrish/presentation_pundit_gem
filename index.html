@@ -397,6 +397,21 @@ color: #333;
        ]
      });
 
+     window.onload = function(e){
+       xmlhttp=new XMLHttpRequest();
+       xmlhttp.onreadystatechange=function()
+       {
+         if (xmlhttp.readyState==4 && xmlhttp.status==200)
+         {
+           pundit_repo = JSON.parse(xmlhttp.responseText);
+           document.getElementById("github-watchers").innerHTML=pundit_repo["subscribers_count"];
+           document.getElementById("github-stars").innerHTML=pundit_repo["stargazers_count"];
+           document.getElementById("github-forks").innerHTML=pundit_repo["forks_count"];
+         }
+       }
+       xmlhttp.open("GET","https://api.github.com/repos/elabs/pundit",true);
+       xmlhttp.send();
+     }
     </script>
   </body>
 </html>
